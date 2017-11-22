@@ -24,6 +24,10 @@ module.exports = {
   */
   loading: { color: '#3B8070' },
   /*
+  ** Puts app in SPA mode
+  */ 
+  mode: 'spa',
+  /*
   ** Build configuration
   */
   build: {
