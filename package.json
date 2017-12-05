@@ -12,6 +12,10 @@
   },
   "dependencies": {
     "nuxt": "^1.0.0-rc11",
+    "vue": "^2.5.9",
+    "vue-carousel": "^0.6.5",
+    "vue-server-renderer": "^2.5.9",
+    "vue-template-compiler": "^2.5.9",
     "vuetify": "^0.17.3"
   },
   "devDependencies": {
