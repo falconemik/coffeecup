@@ -1,31 +1,23 @@
 <template>
   <v-layout justify-center align-center>
-    <v-flex style="background-color:#bdb76b">
-  <v-carousel>
-    <v-carousel-item v-for="(item,i) in items" :src= 'item.src' :key="i">
-      
-    </v-carousel-item>
-  </v-carousel>
+    <v-flex style='background-color:#bdb76b'>
+    <productsCarousel :products="items" />
     </v-flex>
   </v-layout>
 </template>
 
 <script>
+import products from '../assets/products.js'
+import productsCarousel from '../components/products'
+
 export default {
   data () {
     return {
-      items: [
-        {
-          src: '/products-images/amethyst.png'
-        },
-        {
-          src: '/products-images/arcane.png'
-        },
-        {
-          src: '/products-images/grand.png'
-        }
-      ]
+      items: products
     }
+  },
+  components: {
+    productsCarousel
   }
 }
 </script>

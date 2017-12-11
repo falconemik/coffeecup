@@ -1,44 +1,40 @@
 <template>
-  <v-carousel>
-    <v-carousel-item
-      v-for="(item,i) in items"
-      v-bind:key="i"
-      v-bind:src="item.src"
-      transition="fade"
-      reverseTransition="fade"
-    ></v-carousel-item>
+    <v-carousel :cycle = "false">
+    <v-carousel-item v-for='(item,i) in products' :key='i'>
+      <v-container fluid>
+      <v-layout row>
+        <v-flex xs6>
+            <v-card-media
+              contain
+              height="350px"
+              :src= "item.img"
+              >
+            </v-card-media>
+        </v-flex>
+        <v-flex xs6>
+          <v-card-title primary-title class="pa-0">
+            <div>
+              <h3 class="headline mb-0" style="text-transform:uppercase" height="350px">{{item.title}}</h3>
+              <div>{{item.description}}</div>
+            </div>
+          </v-card-title>
+        </v-flex>
+      </v-layout>
+      <v-layout row justify-center>
+        <v-flex xs6>
+          {{item.price}}
+        </v-flex> 
+        <v-flex xs6>
+          <v-btn>Заказать</v-btn>
+        </v-flex> 
+      </v-layout>
+      </v-container>
+    </v-carousel-item>
   </v-carousel>
 </template>
 
 <script>
   export default {
-    data () {
-      return {
-        items: [
-          {
-            src: '/assets/products-images/grand.png'
-          },
-          {
-            src: '/assets/products-images/arcane.png'
-          },
-          {
-            src: '/assets/products-images/amethyst.png'
-          }
-        ]
-      }
-    }
+    props: ['products']
   }
 </script>
-
-<style lang="stylus">
-  #carousel-view
-    .fade
-      &-enter-active, &-leave-active, &-leave-to
-        transition: .3s ease-out
-        position: absolute
-        top: 0
-        left: 0
-
-      &-enter, &-leave, &-leave-to
-        opacity: 0
-</style>
