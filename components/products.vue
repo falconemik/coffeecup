@@ -1,5 +1,5 @@
 <template>
-    <v-carousel :cycle = "false">
+    <v-carousel>
     <v-carousel-item v-for='(item,i) in products' :key='i'>
       <v-container fluid>
       <v-layout row>
@@ -22,10 +22,9 @@
       </v-layout>
       <v-layout row justify-center>
         <v-flex xs6>
-          {{item.price}}
-        </v-flex> 
-        <v-flex xs6>
-          <v-btn>Заказать</v-btn>
+        </v-flex>
+        <v-flex xs6 text-xs-center>
+          <h1>{{item.price}}</h1>
         </v-flex> 
       </v-layout>
       </v-container>
