@@ -3,6 +3,39 @@ module.exports = {
   /*
   ** Headers of the page
   */
+  modules: [
+    '@nuxtjs/auth',
+
+    // ...Axios module should be included AFTER @nuxtjs/auth
+    '@nuxtjs/axios'
+  ],
+  // Default Values
+  auth: {
+    user: {
+      endpoint: 'auth/user',
+      propertyName: 'user',
+      resetOnFail: true
+    },
+    login: {
+      endpoint: 'auth/login'
+    },
+    logout: {
+      endpoint: 'auth/logout',
+      method: 'GET'
+    },
+    redirect: {
+      notLoggedIn: '/login',
+      loggedIn: '/'
+    },
+    token: {
+      enabled: true,
+      type: 'Bearer',
+      localStorage: true,
+      name: 'token',
+      cookie: true,
+      cookieName: 'token'
+    }
+  },  
   head: {
     title: 'coffeecup',
     meta: [

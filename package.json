@@ -7,16 +7,23 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
+    "start": "nuxt start"
   },
   "dependencies": {
+    "@nuxtjs/auth": "^3.2.0",
+    "@nuxtjs/axios": "^4.5.0",
+    "axios": "^0.16.1",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
     "nuxt": "^1.0.0-rc11",
+    "nuxt-firebase": "0.0.2",
     "vue": "^2.5.9",
     "vue-carousel": "^0.6.5",
     "vue-server-renderer": "^2.5.9",
     "vue-template-compiler": "^2.5.9",
-    "vuetify": "^0.17.3"
+    "vuetify": "^0.17.3",
+    "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",

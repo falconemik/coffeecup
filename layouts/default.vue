@@ -18,7 +18,7 @@
                 <v-btn flat to="/map" color="amber lighten-4">Карта</v-btn>
             </v-toolbar>
           <nuxt />
-          <v-footer dark></v-footer>
+          <v-footer dark><v-btn to="/sign_in">Log in</v-btn></v-footer>
         </v-flex>
         </v-layout>
       </v-container>
