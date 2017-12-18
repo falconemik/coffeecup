@@ -50,7 +50,9 @@ const store = () => new Vuex.Store({
           if (res.status === 401) {
             throw new Error('Bad credentials')
           } else {
-            return res.json()
+            // eslint-disable-next-line
+            // debugger;
+            return res.body
           }
         })
         .then((authUser) => {

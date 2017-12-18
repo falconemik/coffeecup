@@ -6,7 +6,7 @@
       <p><i>To login, use <b>demo</b> as username and <b>demo</b> as password.</i></p>
       <p>Username: <input type="text" v-model="formUsername" name="username" /></p>
       <p>Password: <input type="password" v-model="formPassword" name="password" /></p>
-      <button type="submit" @click="routRedirecting">Login</button>
+      <button type="submit">Login</button>
     </form>
     <div v-else>
       Hello {{ $store.state.authUser.username }}!
@@ -34,6 +34,7 @@ export default {
           username: this.formUsername,
           password: this.formPassword
         })
+          .then(() => this.$router.replace({ path: '/admin/order_list' }))
         this.formUsername = ''
         this.formPassword = ''
         this.formError = null
@@ -47,11 +48,6 @@ export default {
       } catch (e) {
         this.formError = e.message
       }
-    },
-    routRedirecting () {
-      routes: [
-        { path: '/sign_in', redirect: '/admin/order_list' }
-      ]
     }
   }
 }

@@ -1,12 +1,12 @@
 <template>
-  <v-app>
+  <v-app dark>
     <v-toolbar fixed app :clipped-left="clipped" color="brown" dark>
         <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
         <v-toolbar-title class="white--text">Admin</v-toolbar-title>
         <v-toolbar-title v-text="pageTitle" ></v-toolbar-title>
         <v-spacer></v-spacer>
         <v-toolbar-items>
-          <v-btn flat>Зайти/Выйти</v-btn>
+          <v-btn flat @click="logout">Выйти</v-btn>
         </v-toolbar-items>
     </v-toolbar>
     
@@ -17,7 +17,7 @@
     </v-content>
         
     <v-navigation-drawer
-      mini-variant="mini"
+      :mini-variant="miniVariant"
       :clipped="clipped"
       v-model="drawer"
       fixed
@@ -52,20 +52,35 @@
   export default {
     data () {
       return {
+        formError: null,
+        formUsername: '',
+        formPassword: '',
         drawer: true,
+        fixed: true,
+        clipped: true,
+        miniVariant: true,
         items: [
           { title: 'Пользователи', icon: 'account_box', to: '/admin/users' },
           { title: 'Заказы', icon: 'assignment', to: '/admin/order_list' },
           { title: 'Наличие товара', icon: 'assessment', to: '/admin/store' },
           { title: 'Главная', icon: 'chat', to: '/admin' }
         ],
-        mini: true,
         right: null
       }
     },
     computed: {
       pageTitle () {
-        return this.items.find(x => x.to === this.$route.path).title
+        // return this.items.find(x => x.to === this.$route.path).title
+      }
+    },
+    methods: {
+      async logout () {
+        try {
+          await this.$store.dispatch('logout')
+            .then(() => this.$router.replace({ path: '/' }))
+        } catch (e) {
+          this.formError = e.message
+        }
       }
     }
   }

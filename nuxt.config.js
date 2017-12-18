@@ -35,7 +35,7 @@ module.exports = {
       cookie: true,
       cookieName: 'token'
     }
-  },  
+  },
   head: {
     title: 'coffeecup',
     meta: [
@@ -58,14 +58,15 @@ module.exports = {
   loading: { color: '#3B8070' },
   /*
   ** Puts app in SPA mode
-  */ 
+  */
   mode: 'spa',
   /*
   ** Build configuration
   */
   build: {
     vendor: [
-      '~/plugins/vuetify.js'
+      '~/plugins/vuetify.js',
+      'firebase'
     ],
     extractCSS: true,
     /*
