@@ -25,6 +25,7 @@
     "vue-carousel": "^0.6.5",
     "vue-server-renderer": "^2.5.9",
     "vue-template-compiler": "^2.5.9",
+    "vuefire": "^1.4.5",
     "vuetify": "^0.17.3",
     "whatwg-fetch": "^2.0.3"
   },

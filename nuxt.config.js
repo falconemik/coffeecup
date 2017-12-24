@@ -4,38 +4,38 @@ module.exports = {
   ** Headers of the page
   */
   modules: [
-    '@nuxtjs/auth',
+    // '@nuxtjs/auth',
 
     // ...Axios module should be included AFTER @nuxtjs/auth
     '@nuxtjs/axios'
   ],
   // Default Values
-  auth: {
-    user: {
-      endpoint: 'auth/user',
-      propertyName: 'user',
-      resetOnFail: true
-    },
-    login: {
-      endpoint: 'auth/login'
-    },
-    logout: {
-      endpoint: 'auth/logout',
-      method: 'GET'
-    },
-    redirect: {
-      notLoggedIn: '/login',
-      loggedIn: '/'
-    },
-    token: {
-      enabled: true,
-      type: 'Bearer',
-      localStorage: true,
-      name: 'token',
-      cookie: true,
-      cookieName: 'token'
-    }
-  },
+  // auth: {
+  //   user: {
+  //     endpoint: 'auth/user',
+  //     propertyName: 'user',
+  //     resetOnFail: true
+  //   },
+  //   login: {
+  //     endpoint: 'auth/login'
+  //   },
+  //   logout: {
+  //     endpoint: 'auth/logout',
+  //     method: 'GET'
+  //   },
+  //   redirect: {
+  //     notLoggedIn: '/login',
+  //     loggedIn: '/'
+  //   },
+  //   token: {
+  //     enabled: true,
+  //     type: 'Bearer',
+  //     localStorage: true,
+  //     name: 'token',
+  //     cookie: true,
+  //     cookieName: 'token'
+  //   }
+  // },
   head: {
     title: 'coffeecup',
     meta: [
@@ -48,7 +48,10 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
     ]
   },
-  plugins: ['~/plugins/vuetify.js'],
+  plugins: [
+    '~/plugins/vuetify.js',
+    '~/plugins/vuefire.js'
+  ],
   css: [
     '~/assets/style/app.styl'
   ],
@@ -65,7 +68,7 @@ module.exports = {
   */
   build: {
     vendor: [
-      '~/plugins/vuetify.js',
+      'vuetify',
       'firebase'
     ],
     extractCSS: true,
